@@ -1,7 +1,3 @@
-# python
-## origin master change
-### iss87
-### hotfix
-### fix iss87
+# python version: 3
+
 Some of  python cede. 
-python version : 3
