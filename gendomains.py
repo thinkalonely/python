@@ -7,7 +7,7 @@ list1 = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i'
 
 list2 = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a']
 
-list3 = ['1','2','3','5','6','7','8','9']
+numlist = [str(x) for x in range(0, 10)]
 
 namepath ='C:\\users\\hoo\desktop\\domains.txt'
 
@@ -16,7 +16,7 @@ if order == '1':
 elif order == '2':
 	tmplist = list2
 elif order == '3':
-	tmplist = list3
+	tmplist = numlist
 elif order == 'd':
 	print('正在清除数据...')
 	with open(namepath, 'w') as f:
