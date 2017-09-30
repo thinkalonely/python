@@ -8,7 +8,6 @@ list1 = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i'
 list2 = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a']
 
 numlist = [str(x) for x in range(0, 10)]
-
 namepath ='C:\\users\\hoo\desktop\\domains.txt'
 
 if order == '1':
