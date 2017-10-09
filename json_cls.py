@@ -8,6 +8,6 @@ class Student(object):
         self.name = name
         self.age = age
         self.score = score
-s = Student('Bob', 23, 80)
+std = Student('Bob', 23, 80)
 
-print(json.dumps(s, default=lambda obj: obj.__dict__))
+print(json.dumps(std, default=lambda obj: obj.__dict__))
