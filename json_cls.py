@@ -1,2 +1,13 @@
 # !/usr/bin/python
 # -*- utf-8 -*-
+
+import json
+
+class Student(object):
+    def __init__(self, name, age, score):
+        self.name = name
+        self.age = age
+        self.score = score
+s = Student('Bob', 23, 80)
+
+print(json.dumps(s, default=lambda obj: obj.__dict__))
