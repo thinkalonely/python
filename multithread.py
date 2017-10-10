@@ -1,13 +1,14 @@
 # /usr/bin/env python
 # -*- utf-8 -*-
 
-import threading, time
+import threading
+import time
 
 # 新线程执行的代码:
 def loop():
     print('thread %s is running...' % threading.current_thread().name)
     n = 0
-    while n < 5:
+    while n < 9:
         n = n + 1
         print('thread %s >>> %s' % (threading.current_thread().name, n))
         time.sleep(1)
