@@ -18,9 +18,9 @@ def calc_md5(password):
 def login(user, password):
     if user in db:
         if password == db[user]:
-            print(True)
+            print('登录成功！')
         else:
-            print(False)
+            print('密码错误！')
     else:
         print('User not exist!')
 
