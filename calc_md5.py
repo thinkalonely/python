@@ -25,13 +25,13 @@ def login():
 
     if user in db:
         passwd = input('Please input password: ')
-        password = get_md5(passwd)
+        password = get_md5(user + passwd + salt)
         if password == db[user]:
             print('登录成功！')
         else:
             print('密码错误！')
     else:
         print('User not exist!')
-    return login()
+
 register(username, password)
 login()
