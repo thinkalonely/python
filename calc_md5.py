@@ -39,4 +39,4 @@ def login():
         print('User not exist!')
         register()
 register()
-print(db)
+
