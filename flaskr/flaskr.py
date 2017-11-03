@@ -26,7 +26,7 @@ def before_request():
     g.db = connect_db()
 
 @app.teardown_request
-def teardown_repuest(exception):
+def teardown_repuest(exceptoin):
     db = getattr(g, 'db', None)
     if db is not None:
         db.close()
@@ -60,11 +60,12 @@ def login():
             flash('Login Success!')
             return redirect(url_for('show_entries'))
     return render_template('login.html', error=error)
-#logout
+# logout
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('Logged out!')
     return redirect(url_for('show_entries'))
+
 if __name__ == '__main__':
     app.run()
