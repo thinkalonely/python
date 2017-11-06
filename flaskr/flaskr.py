@@ -26,7 +26,7 @@ def before_request():
     g.db = connect_db()
 
 @app.teardown_request
-def teardown_repuest(exceptoin):
+def teardown_repuest():
     db = getattr(g, 'db', None)
     if db is not None:
         db.close()
