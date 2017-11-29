@@ -28,7 +28,6 @@ def insert_reg():
     if len(k_name) > 0:
         newKey  =  winreg.CreateKey(key, "%s" % k_name)
 
-
         i = 0
         while i < 6:
             if len(data[i]) > 0:
@@ -67,7 +66,6 @@ def delete_reg():
     else:
         messagebox.showinfo('info', '输入的项名不存在！')
     
-
 root = Tk()
 root.title('操作注册表')
 win = Frame(root, height=195, width=320)
@@ -102,8 +100,6 @@ L6 = Label(win, text="time: ")
 L6.grid(row=7, column=0,sticky='W')
 e6 = Entry(win,width=20)
 e6.grid(row=7, column=2,sticky='W',columnspan=2)
-
-
 
 button_1 = Button(win, text="写入",bg="green", height=1,width=5, command=insert_reg)
 button_1.grid(row=1, column=5, sticky='E')
