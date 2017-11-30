@@ -1,14 +1,13 @@
 import random
 
 order = input("Please input:\n 字母加数字选择 1：\n 全字母选择2：\n 全数字选择3：\n 清空文本按 d: ")
+
 tmplist = []
-
 list1 = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a','1','2','3','5','6','7','8','9']
-
 list2 = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a']
 
 numlist = [str(x) for x in range(0, 10)]
-namepath ='C:\\users\\hoo\desktop\\domains.txt'
+namepath ='C:\\users\\test\desktop\\domains.txt'
 
 if order == '1':
 	tmplist = list1
