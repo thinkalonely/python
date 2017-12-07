@@ -10,3 +10,5 @@ generate random domains
  - all number
  - all char
  - mix module
+### win_reg
+ - edit registry
