@@ -7,7 +7,7 @@ list1 = string.ascii_lowercase + string.digits
 list2 = string.ascii_lowercase
 
 numlist = string.digits
-namepath ='C:\\users\\test\desktop\\domains.txt'
+namepath ='C:\\users\\hoo\desktop\\domains.txt'
 
 if order == '1':
     tmplist = list1
