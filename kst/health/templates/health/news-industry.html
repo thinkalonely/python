@@ -28,44 +28,16 @@
 {% block service-box %}
 <div class="main">
         <div class="nav_bar">
-            <div class="nav">
-                <div class="wrap">
-                    <div class="nav_top"></div>
-                    <div class="nav_menu">
-                        <ul>
-                            <li>
-                                <a href="/news/" class="hover"><strong>>> 媒体报道</strong></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nav_menu">
-                        <ul>
-                            <li>
-                                <a href="/industry-news/" class="hover">>> 行业动态</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nav_bottom">
-                         <div class="fuwurexian">
-                             <div class="yizongguan" >
-                                <div><span class="icon-1"></span><span><strong> 医总管</strong></span></div>
-                                <div class="phone_number">让医疗健康触手可及</div>
-                             </div>
-                            <div class="yizongguan-1"><div><span class="icon"></span><span><strong>服务热线：</strong></span></div>
-                            <div class="phone_number"> 028-87770007</div>  </div>
-                       </div>
-                    </div>
-                </div>
-            </div>
+            {% include "health/nav.html" %}
         </div>
 
         <div class="list-box">
             <div class="policy_advisory-box">
+                <!-- article list -->
                 {% for item in industry_list %}
                 <div class="float policy_advisory-item">
                     <div class="left">
-                        <div class="policy_advisory-icon">
-                        <img src="{% static item.image %}" width="200" height="120" /></div>
+                        <div class="policy_advisory-icon"><img src="{% static item.image %}" width="200" height="120" /></div>
                     </div>
                     <div class="left">
                     <a href="{% url 'industry' item.id %}" target="_blank">
@@ -88,7 +60,7 @@
             </div>
             <div class="industry-page">
                     <div class="page_control">
-                        <a href="service-news.html"><< 首页</a>
+                        <a href="/news/"><< 首页</a>
                         <a href="service-news.html"><< 上一页</a>
                         <a href="service-news.html" class="hover"> 1</a>
                         <a href="service-news-two.html" >2</a>
