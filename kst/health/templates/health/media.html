@@ -1,0 +1,78 @@
+<!-- 继承模板 base.html -->
+{% extends "health/base.html" %}
+{% load staticfiles %}
+
+{% block title %} {{ article.title }} {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'health/css/service_platform.css' %}">
+<link rel="stylesheet" href="{% static 'health/css/highlights/github.css' %}">
+<link rel="stylesheet" href="{% static 'health/css/policy_advisory_detail.css' %}">
+<style>
+    .intro-box,
+    .intro-title  {
+        padding: 0;
+    }
+    .intro-box .intro-content {
+        padding: 0;
+    }
+</style>
+{% endblock %}
+
+<!-- 主体部分 -->
+{% block banner %}
+    <div class="img">
+        <img src='{% static "health/images/banner-news.jpg" %}'>
+    </div>
+{% endblock %}
+
+{% block service-box %}
+<div class="main">
+    <div class="nav_bar">
+            <div class="nav">
+                <div class="wrap">
+                    <div class="nav_top"></div>
+                    <div class="nav_menu">
+                        <ul>
+                            <li>
+                                <a href="/news/" class="hover"><strong>>> 媒体报道</strong></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav_menu">
+                        <ul>
+                            <li>
+                                <a href="/industry-news/" class="hover">>> 行业动态</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav_bottom">
+                         <div class="fuwurexian">
+                             <div class="yizongguan" >
+                                <div><span class="icon-1"></span><span><strong> 医总管</strong></span></div>
+                                <div class="phone_number">让医疗健康触手可及</div>
+                             </div>
+                            <div class="yizongguan-1"><div><span class="icon"></span><span><strong>服务热线：</strong></span></div>
+                            <div class="phone_number"> 028-87770007</div>  </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="article">
+        <div class="title_box">
+            <div class="title">
+                <h3 align="center"><strong>{{ article.title }}</strong></h3>
+            </div>
+            <div class="dates">
+                <span class="date">时间：{{ article.pub_date }}</span></div>
+        </div>
+        <div class="intro">
+            <p><strong>{{ article.keywords }}</strong> </p>
+        </div>
+        <div class="article_details">
+            {{ article.content|safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}
