@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 from .models import Provide, Article, Contact, Service, People, Advantage, Industry
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -28,10 +29,20 @@ def pension(request):
 
 def news(request):
     article_list = Article.objects.all()
-    context = {
-        'article_list': article_list,
-    }
-    return render(request, 'health/news.html', context)
+    paginator = Paginator(article_list, 4)
+
+    page = request.GET.get('page')
+    # contacts = paginator.get_page(page)
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # 如果用户请求的页码号不是整数，显示第一页
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # 如果用户请求的页码号超过了最大页码号，显示最后一页
+        contacts = paginator.page(paginator.num_pages)
+
+    return render(request, 'health/news.html', {'contacts': contacts, })
 
 def industry_news(request):
     industry_list = Industry.objects.all()
