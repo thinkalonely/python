@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'simditor',
     'xadmin',
     'crispy_forms',
+    'reversion',
 ]
 
 MIDDLEWARE = [
