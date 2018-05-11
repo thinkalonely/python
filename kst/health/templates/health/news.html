@@ -60,20 +60,24 @@
             {% endfor %}
         </div>
         <div class="pagination">
-            <span class="step-links">
-                {% if contacts.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ contacts.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="current">
-                    Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
-                </span>
+            <div class="industry-page">
+                <div class="page_control">
+                    <span class="step-links">
+                        {% if contacts.has_previous %}
+                        <a href="?page=1">&laquo; 首页</a>
+                        <a href="?page={{ contacts.previous_page_number }}">上一页</a>
+                        {% endif %}
+                        <span class="current">
+                            第 {{ contacts.number }} 页 / 共 {{ contacts.paginator.num_pages }}页
+                        </span>
 
-                {% if contacts.has_next %}
-                    <a href="?page={{ contacts.next_page_number }}">next</a>
-                    <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
-                {% endif %}
-            </span>
+                        {% if contacts.has_next %}
+                            <a href="?page={{ contacts.next_page_number }}">下一页</a>
+                            <a href="?page={{ contacts.paginator.num_pages }}">末页</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
         </div>
         <!--
         <div class="industry-page">
