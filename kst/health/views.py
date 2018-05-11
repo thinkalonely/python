@@ -29,7 +29,7 @@ def pension(request):
 
 def news(request):
     article_list = Article.objects.all()
-    paginator = Paginator(article_list, 2)
+    paginator = Paginator(article_list, 4)
 
     page = request.GET.get('page')
     # contacts = paginator.get_page(page)
@@ -46,7 +46,7 @@ def news(request):
 
 def industry_news(request):
     industry_list = Industry.objects.all()
-    paginator = Paginator(industry_list, 2)
+    paginator = Paginator(industry_list, 4)
 
     page = request.GET.get('page')
     # contacts = paginator.get_page(page)
