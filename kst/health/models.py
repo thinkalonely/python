@@ -7,9 +7,12 @@ class Article(models.Model):
     image = models.CharField('图片Url', max_length=50, default='health/images/jigou-img-01.png')
     title = models.CharField('标题', max_length=200)
     keywords = models.CharField('关键词', max_length=200, default='关键词:')
-    desc = models.CharField('摘要', max_length=120)
+    desc = models.TextField('摘要', max_length=120)
     content = RichTextField('内容')
     pub_date = models.DateField('发布日期')
+
+    class Meta:
+        ordering = ['-pub_date']
 
     def __str__(self):
         return self.title
@@ -18,9 +21,12 @@ class Industry(models.Model):
     image = models.CharField('图片Url', max_length=50, default='health/images/jigou-img-03.png')
     title = models.CharField('标题', max_length=200)
     keywords = models.CharField('关键词', max_length=200)
-    desc = models.TextField('摘要', max_length=120,default='')
+    desc = models.TextField('摘要', max_length=120, default='')
     content = RichTextField('内容')
     pub_date = models.DateField('发布日期')
+
+    class Meta:
+        ordering = ['-pub_date']
 
     def __str__(self):
         return self.title

@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'health.apps.HealthConfig',
-    'markdown_deux',
     'simditor',
+    'xadmin',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
