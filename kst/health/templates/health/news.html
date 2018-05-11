@@ -27,48 +27,49 @@
 
 {% block service-box %}
 <div class="main">
-        <div class="nav_bar">
-            {% include "health/nav.html" %}
-        </div>
+    <div class="nav_bar">
+        {% include "health/nav.html" %}
+    </div>
 
-        <div class="list-box">
-            <div class="policy_advisory-box">
-                <!-- article list -->
-                {% for article in article_list %}
-                <div class="float policy_advisory-item">
-                    <div class="left">
-                        <div class="policy_advisory-icon"><img src="{% static article.image %}" width="200" height="120" /></div>
-                    </div>
-                    <div class="left">
+    <div class="list-box">
+        <div class="policy_advisory-box">
+            <!-- article list -->
+            {% for article in article_list %}
+            <div class="float policy_advisory-item">
+                <div class="left">
+                    <div class="policy_advisory-icon"><img src="{% static article.image %}" width="200" height="120" /></div>
+                </div>
+                <div class="left">
                     <a href="{% url 'media' article.id %}" target="_blank">
                         <div class="policy_advisory-info">
                             <div class="float policy_advisory-title">
                                 <div class="left policy_advisory-name">
-                                  <h3><strong>{{ article.title }}</strong></h3>
-                              </div>
-                             </div>
+                                    <h3><strong>{{ article.title }}</strong></h3>
+                                 </div>
+                            </div>
                             <div class="policy_advisory-desc">
-                              <p>{{ article.desc }}</p>
+                                <p>{{ article.desc }}</p>
                             </div>
                             <div class="policy_advisory-date">
                                 <span>{{ article.pub_date }}</span>
                             </div>
-                        </div></a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
-                {% endfor %}
             </div>
-            <div class="industry-page">
-                    <div class="page_control">
-                        <a href="/news/"><< 首页</a>
-                        <a href="service-news.html"><< 上一页</a>
-                        <a href="service-news.html" class="hover"> 1</a>
-                        <a href="service-news-two.html" >2</a>
-                        <a href="service-news-two.html">下一页 >></a>
-                        <a href="service-news-two.html">末页 >></a>
-                    </div>
-                </div>
+            {% endfor %}
         </div>
+        <!--
+        <div class="industry-page">
+            <div class="page_control">
+                <a href="/news/"><< 首页</a>
+                <a href="service-news.html"><< 上一页</a>
+                <a href="service-news.html" class="hover"> 1</a>
+                <a href="service-news-two.html" >2</a>
+                <a href="service-news-two.html">下一页 >></a>
+                <a href="service-news-two.html">末页 >></a>
+            </div>
+        </div> -->
     </div>
 </div>
 {% endblock %}
