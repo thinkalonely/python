@@ -26,66 +26,58 @@
 {% endblock %}
 
 {% block service-box %}
-<div class="main">
-    <div class="nav_bar">
-        {% include "health/nav.html" %}
-    </div>
-    <div class="list-box">
+<div class="nav_bar">
+</div>
+<div class="float main">
+    {% include "health/nav.html" %}
+    <div class="left list-box">
         <div class="policy_advisory-box">
             <!-- article list -->
-            {% for item in industry_list %}
+            {% for article in contacts %}
             <div class="float policy_advisory-item">
                 <div class="left">
-                    <div class="policy_advisory-icon"><img src="{% static item.image %}" width="200" height="120" /></div>
+                    <div class="policy_advisory-icon"><img src="{% static article.image %}" width="200" height="120" /></div>
                 </div>
                 <div class="left">
-                    <a href="{% url 'industry' item.id %}" target="_blank">
+                    <a href="{% url 'industry' article.id %}" target="_blank">
                         <div class="policy_advisory-info">
                             <div class="float policy_advisory-title">
                                 <div class="left policy_advisory-name">
-                                  <h3><strong>{{ item.title }}</strong></h3>
-                                </div>
+                                    <h3><strong>{{ article.title }}</strong></h3>
+                                 </div>
                             </div>
                             <div class="policy_advisory-desc">
-                                <p>{{ item.desc }}</p>
+                                <p>{{ article.desc }}</p>
                             </div>
                             <div class="policy_advisory-date">
-                                <span>{{ item.pub_date }}</span>
+                                <span>{{ article.pub_date }}</span>
                             </div>
-                        </div></a>
+                        </div>
+                    </a>
                 </div>
             </div>
             {% endfor %}
         </div>
         <div class="pagination">
-            <span class="step-links">
-                {% if contacts.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ contacts.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="current">
-                    Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
-                </span>
+            <div class="industry-page">
+                <div class="page_control">
+                    <span class="step-links">
+                        {% if contacts.has_previous %}
+                        <a href="?page=1">&laquo; 首页</a>
+                        <a href="?page={{ contacts.previous_page_number }}">上一页</a>
+                        {% endif %}
+                        <span class="current">
+                            <a>第 {{ contacts.number }} 页 / 共 {{ contacts.paginator.num_pages }}页</a>
+                        </span>
 
-                {% if contacts.has_next %}
-                    <a href="?page={{ contacts.next_page_number }}">next</a>
-                    <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
-                {% endif %}
-            </span>
-        </div>
-        <!--
-        <div class="industry-page">
-            <div class="page_control">
-                <a href="/news/"><< 首页</a>
-                <a href="service-news.html"><< 上一页</a>
-                <a href="service-news.html" class="hover"> 1</a>
-                <a href="service-news-two.html" >2</a>
-                <a href="service-news-two.html">下一页 >></a>
-                <a href="service-news-two.html">末页 >></a>
+                        {% if contacts.has_next %}
+                            <a href="?page={{ contacts.next_page_number }}">下一页</a>
+                            <a href="?page={{ contacts.paginator.num_pages }}">末页</a>
+                        {% endif %}
+                    </span>
+                </div>
             </div>
         </div>
-        -->
     </div>
 </div>
-
 {% endblock %}

@@ -29,7 +29,7 @@ def pension(request):
 
 def news(request):
     article_list = Article.objects.all()
-    paginator = Paginator(article_list, 4)
+    paginator = Paginator(article_list, 2)
 
     page = request.GET.get('page')
     # contacts = paginator.get_page(page)
@@ -46,10 +46,20 @@ def news(request):
 
 def industry_news(request):
     industry_list = Industry.objects.all()
-    context = {
-        'industry_list': industry_list,
-    }
-    return render(request, 'health/news-industry.html', context)
+    paginator = Paginator(industry_list, 2)
+
+    page = request.GET.get('page')
+    # contacts = paginator.get_page(page)
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # 如果用户请求的页码号不是整数，显示第一页
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # 如果用户请求的页码号超过了最大页码号，显示最后一页
+        contacts = paginator.page(paginator.num_pages)
+
+    return render(request, 'health/news-industry.html', {'contacts': contacts, })
 
 def media(request, article_id):
     try:

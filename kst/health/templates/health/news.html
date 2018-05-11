@@ -26,12 +26,11 @@
 {% endblock %}
 
 {% block service-box %}
-<div class="main">
-    <div class="nav_bar">
-        {% include "health/nav.html" %}
-    </div>
-
-    <div class="list-box">
+<div class="nav_bar">
+</div>
+<div class="float main">
+    {% include "health/nav.html" %}
+    <div class="left list-box">
         <div class="policy_advisory-box">
             <!-- article list -->
             {% for article in contacts %}
@@ -68,7 +67,7 @@
                         <a href="?page={{ contacts.previous_page_number }}">上一页</a>
                         {% endif %}
                         <span class="current">
-                            第 {{ contacts.number }} 页 / 共 {{ contacts.paginator.num_pages }}页
+                            <a>第 {{ contacts.number }} 页 / 共 {{ contacts.paginator.num_pages }}页</a>
                         </span>
 
                         {% if contacts.has_next %}
@@ -79,17 +78,6 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div class="industry-page">
-            <div class="page_control">
-                <a href="/news/"><< 首页</a>
-                <a href="service-news.html"><< 上一页</a>
-                <a href="service-news.html" class="hover"> 1</a>
-                <a href="service-news-two.html" >2</a>
-                <a href="service-news-two.html">下一页 >></a>
-                <a href="service-news-two.html">末页 >></a>
-            </div>
-        </div> -->
     </div>
 </div>
 {% endblock %}
