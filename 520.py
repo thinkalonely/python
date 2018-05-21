@@ -38,7 +38,7 @@ for y in range(1, 21):
             try:
                 fromImage = Image.open("C:/Users/hoo/Pictures/%s" % random.sample(names, 1)[0])
                 fromImage = fromImage.resize((100, 100), Image.ANTIALIAS)
-                if x in [2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 16, 17, 18, 19]:
+                if x in list(range(2, 7)) or x in list(range(9, 14)) or x in list(range(16, 20)):
                     toImage.paste(fromImage, ((x - 1) * mw, y * mw))
             except IOError:
                 pass
@@ -56,7 +56,7 @@ for y in range(1, 21):
             try:
                 fromImage = Image.open("C:/Users/hoo/Pictures/%s" % random.sample(names, 1)[0])
                 fromImage = fromImage.resize((100, 100), Image.ANTIALIAS)
-                if x in [2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 16, 19]:
+                if x not in [1, 7, 8, 14, 15, 17, 18, 20]:
                     toImage.paste(fromImage, ((x - 1) * mw, y * mw))
             except IOError:
                 pass
